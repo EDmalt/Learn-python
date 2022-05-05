@@ -7,9 +7,9 @@
 3.获取数据
 """
 # 导入包
-import requests
+import requests # 获取源文件类
 from fake_useragent import UserAgent
-from lxml import html
+from lxml import html # 解析源文件类
 
 # url = "https://movie.douban.com/top250"  # 获取地址
 url_XinLang = "https://www.sina.com.cn/"
@@ -19,8 +19,8 @@ url_XinLang = "https://www.sina.com.cn/"
 # "Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.50"}
 
 # 使用动态headers伪装来破解反爬虫机制
-# user_agent = UserAgent()
-# headers = {"user-agent": user_agent.random}
+user_agent = UserAgent()
+headers = {"user-agent": user_agent.random}
 
 # respone = requests.get(url, headers=headers)
 rsp = requests.get(url_XinLang)
