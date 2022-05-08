@@ -48,7 +48,7 @@ if __name__ == '__main__':
     month_data = pandas_to_numpy(data)
     plt_init()
     # 创建字典用于存放标签
-    color_Dictionary = {1: "men:平均值", 2: "max:最大值",3: "min:最小值"}
+    color_Dictionary = {1: "mean:平均值", 2: "max:最大值",3: "min:最小值"}
     color_list = ["Chartreuse", "red", "Cyan"]
     # 绘画线条(x,y,linewidth=设置线条粗细,'设置线条类型'，color="颜色",linestyle='线条样式',marker='线条类型',markersize="设置点大小")
     for i in range(len(color_list)):
@@ -60,6 +60,8 @@ if __name__ == '__main__':
                      verticalalignment="top")  # 显示对应数值
     # 打印图列标签
     plt.legend()
+    # 显示图表格线
+    plt.grid(linestyle=":")
     # 打印图表
     plt.show()
     print(data)
