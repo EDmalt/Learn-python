@@ -2,13 +2,7 @@
 # @File : python-pandas.py
 import pandas as pd
 
-a=[1,2,3]
-
-print(pd.Series(a))
-
-#pd.to_csv('E:test.csv')
-print(pd.date_range("20200102",periods=10,freq="M"))
-
-data = [1,2,3,4,5]
-df = pd.DataFrame(data)
-print(df)
+data = pd.read_csv(r'E:\可删文件\Python\项目1\LA_temperature_2010_hourly.csv')
+print(data.head(10))
+print(data["HLY-TEMP-NORMAL"].mean())
+print(data.sort_values(by="HLY-TEMP-NORMAL",axis=0,ascending=True,inplace=False))

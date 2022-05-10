@@ -64,4 +64,4 @@ if __name__ == '__main__':
     plt.grid(linestyle=":")
     # 打印图表
     plt.show()
-    print(data)
+    print(month_data)
