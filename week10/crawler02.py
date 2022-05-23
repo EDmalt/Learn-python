@@ -26,7 +26,7 @@ def get_html(url):
 
 if __name__ == '__main__':
     url = "https://movie.douban.com/top250?start={}"
-    # html_str = get_html(url)  # 获取网页源文件
+    html_str = get_html(url)  # 获取网页源文件
     etree = html.etree  # 获取一个解析对象
     num=0
     for i in range(10):

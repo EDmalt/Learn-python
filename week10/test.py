@@ -1,21 +1,26 @@
 # By hefei
 # @File : test.py
-#定义一个类
-class Login:
-    # 初始化变量
-    def __init__(self, id="", name="", password=""):
-        self.__id = id
-        self.__name = name
-        self.__password = password
 
-    def set_id(self,id:str):
-        if  15<len(id)<0 and not id.isalpha():
-            print("id格式出错")
-        else:
-            print("格式没问题")
+import requests
+from fake_useragent import UserAgent
+from lxml import html
+
+def get_html(url):
+    # 使用动态headers伪装来破解反爬虫机制
+    user_agent = UserAgent()
+    headers = {"user-agent": user_agent.random}
+    response = requests.get(url, headers=headers)
+    print(response.status_code)
+    if response.status_code != 200:
+        raise Exception("请检查你的URL地址", url)  # 抛出异常
+    return response.text
+
 
 if __name__ == '__main__':
-    login=Login()
-
-    print(login.set_id("sdadsd233"))
+    url = "http://221.10.100.185:8088/default2.aspx"
+    html_str = get_html(url)  # 获取网页源文件
+    etree=html.etree
+    html=etree.HTML(html_str)
+    value1=html.xpath('//*[@id="TextBox2"]/@value')
+    print(value1)
 
